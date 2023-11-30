@@ -1,3 +1,10 @@
+import NavBar from "@/app/components/NavBar";
+
 export default function Home() {
-  return <div>hi joowon</div>;
+  return (
+    <div>
+      <NavBar />
+      <h1>hello</h1>
+    </div>
+  );
 }
