@@ -2,18 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import styles from "@/app/components/NavBar.module.css";
 
 export default function NavBar() {
   const pathname = usePathname();
+
   return (
-    <nav>
-      <Link href={"/"} style={{ color: pathname === "/" ? "red" : "blue" }}>
+    <nav className={styles.nav}>
+      <Link
+        href={"/"}
+        className={[styles.link, pathname === "/" && styles.active].join(" ")}
+      >
         Home
       </Link>
 
       <Link
         href={"/about"}
-        style={{ color: pathname === "/about" ? "red" : "blue" }}
+        className={[styles.link, pathname === "/about" && styles.active].join(
+          " "
+        )}
       >
         About
       </Link>

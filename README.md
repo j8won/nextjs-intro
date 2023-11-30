@@ -26,7 +26,17 @@
 클라이언트 컴포넌트 훅을 사용하기 위해선 클라이언트 컴포넌트로 바꿔야 합니다. 
 파일 맨 위에 React의 "use client" 지시문을 추가한 다음, next/navigation에서 `usePathname()`을 가져옵니다.
 
-
-
-
 - [How Routing and Navigation Works](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#how-routing-and-navigation-works)
+
+## CSS modules
+CSS 모듈을 사용하면 고유한 클래스 이름을 자동으로 생성하여 컴포넌트에 CSS의 범위를 지정할 수 있으므로 스타일 충돌에 대해 걱정할 필요가 없습니다.
+```js
+import styles from "@/app/components/NavBar.module.css";
+
+<Link
+  href={"/"}
+  className={[styles.link, pathname === "/" && styles.active].join(" ")}
+>
+  Home
+</Link>
+```

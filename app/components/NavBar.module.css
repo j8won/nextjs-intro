@@ -1,0 +1,13 @@
+.nav {
+    padding-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.active {
+    color: tomato;
+}
