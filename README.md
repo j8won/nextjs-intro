@@ -8,7 +8,7 @@
 - Nested routing
   Next.js는 폴더가 중첩 경로를 만드는 데 사용되는 파일 시스템 라우팅을 사용합니다. 각 폴더는 URL 세그먼트에 매핑되는 경로 세그먼트를 나타냅니다.
 
-<img src="https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fdashboard-route.png&w=1920&q=75&dpl=dpl_DiW2ecigo2JKHD1ioFP2oTFMkZS8">
+<img alt="router" src="https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fdashboard-route.png&w=1920&q=75&dpl=dpl_DiW2ecigo2JKHD1ioFP2oTFMkZS8">
 
 ## Navigating Between Pages
 ### `<Link href="/" />`
@@ -40,3 +40,24 @@ import styles from "@/app/components/NavBar.module.css";
   Home
 </Link>
 ```
+## Layout
+Next.js에서는 특별한 layout.jsx 파일을 사용하여 여러 페이지 간에 공유되는 UI를 만들 수 있습니다. 
+
+```js
+import SideNav from '@/app/ui/dashboard/sidenav';
+ 
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div className="w-full flex-none md:w-64">
+        <SideNav />
+      </div>
+      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+    </div>
+  );
+}
+```
+
+Next.js에서 레이아웃을 사용하면 탐색 시 페이지 컴포넌트만 업데이트되고 레이아웃은 다시 렌더링되지 않는다는 이점이 있습니다. 이를 부분 렌더링이라고 합니다
+
+<img alt="layout" src="https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fpartial-rendering-dashboard.png&w=1920&q=75&dpl=dpl_DiW2ecigo2JKHD1ioFP2oTFMkZS8">
